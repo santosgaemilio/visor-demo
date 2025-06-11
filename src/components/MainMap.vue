@@ -6,7 +6,7 @@ import { ref, onMounted } from 'vue'
 const mapDiv = ref('map')
 onMounted(() => {
   //25.70630097838529, -100.30974546183137 Centro de zona metropolitana
-  const map = L.map('map').setView([25.706, -100.309], 12)
+  const map = L.map('map', { zoomControl: false }).setView([25.706, -100.309], 12)
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',

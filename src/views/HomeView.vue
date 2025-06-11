@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import MainMap from '../components/MainMap.vue'
+import MapSidebar from '../components/MapSidebar.vue'
 </script>
 
 <template>
   <main class="full-screen-map">
+    <MapSidebar />
     <MainMap />
   </main>
 </template>
