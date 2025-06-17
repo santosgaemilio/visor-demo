@@ -1,21 +1,22 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
+import SidebarContent from './SidebarContent.vue'
 const sidebarContent = ref<HTMLElement | null>(null)
 const isVisible = ref(false)
-let ShowSidebar = () => console.log('Hey it was clicked')
-onMounted(() => {
-  ShowSidebar = (e: MouseEvent) => {
-    // Solamente para checar que el cambio se realiza correctamente
-    // console.log(sidebarContent.value.classList)
-    e.stopPropagation()
-    isVisible.value = !isVisible.value
-  }
-})
+console.log('We are on the sidebar')
+const ShowSidebar = (e: MouseEvent) => {
+  //NOTE: Solamente para checar que el cambio se realiza correctamente
+  // console.log(sidebarContent.value.classList)
+  e.stopPropagation()
+  isVisible.value = !isVisible.value
+}
 </script>
 <template>
-  <div class="sidebar-container bg-transparent relative">
+  <!-- FIXME: Quitar el sidebar-container y poner todo el estilo en el parent-->
+  <div v-bind="$attrs" class="sidebar-container bg-transparent h-screen w-1/4">
     <!--NOTE: Se va a poner el estilo en clásico CSS para el botón, lo
 demás debe ser tailwindcss -->
+
     <button class="sidebar-toggle-btn" aria-label="Toggle map controls" @click="ShowSidebar">
       <svg
         width="20"
@@ -31,11 +32,11 @@ demás debe ser tailwindcss -->
     </button>
     <div
       ref="sidebarContent"
-      class="bg-white w-1/4 h-screen border shadow-md absolute flex items-center justify-start"
+      class="bg-white w-fit h-screen border shadow-md absolute flex items-center justify-start"
       v-show="isVisible"
     >
       <!-- TODO: Aqui va a ir el componente de SidebarContent.vue, test está de placeholder-->
-      <p>Test</p>
+      <SidebarContent />
     </div>
   </div>
 </template>

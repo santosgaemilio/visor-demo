@@ -9,7 +9,7 @@ import { onUnmounted } from 'vue'
 export function useMapElements(map: L.Map | null) {
   let parkMarkers: L.LayerGroup | null = null
   let randomPolygons: L.LayerGroup | null = null
-
+  const markOfPassage = 'we were here'
   /*NOTE: Cada vez que se quieran mostrar las layers se va a checar si no son null, si
    * son null simplemente se crean. Solamente se van a crear una vez no importa cuantas
    * veces se llamen las funciones "show"*/
@@ -67,5 +67,6 @@ export function useMapElements(map: L.Map | null) {
     hideParkMarkers,
     showRandomPolygons,
     hideRandomPolygons,
+    markOfPassage,
   }
 }
