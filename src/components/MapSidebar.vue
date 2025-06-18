@@ -13,9 +13,8 @@ const ShowSidebar = (e: MouseEvent) => {
 </script>
 <template>
   <!-- FIXME: Quitar el sidebar-container y poner todo el estilo en el parent-->
-  <div v-bind="$attrs" class="sidebar-container bg-transparent h-screen w-1/4">
-    <!--NOTE: Se va a poner el estilo en clásico CSS para el botón, lo
-demás debe ser tailwindcss -->
+  <div v-bind="$attrs" class="sidebar-container bg-transparent h-screen w-1/4 min-w-[400px]">
+    <!--NOTE: Se va a poner el estilo en clásico CSS para el botón, lo demás debe ser tailwindcss -->
 
     <button class="sidebar-toggle-btn" aria-label="Toggle map controls" @click="ShowSidebar">
       <svg
@@ -32,11 +31,11 @@ demás debe ser tailwindcss -->
     </button>
     <div
       ref="sidebarContent"
-      class="bg-white w-fit h-screen border shadow-md absolute flex items-center justify-start"
+      class="bg-white w-fit h-screen border shadow-md absolute flex items-center justify-start min-w-[400px]"
       v-show="isVisible"
     >
       <!-- TODO: Aqui va a ir el componente de SidebarContent.vue, test está de placeholder-->
-      <SidebarContent />
+      <SidebarContent class="m-6" />
     </div>
   </div>
 </template>

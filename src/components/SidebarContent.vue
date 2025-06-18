@@ -33,15 +33,16 @@ watch(showPolygons, (value) => {
 </script>
 
 <template>
-  <div class="layer-controls">
+  <fieldset class="grid grid-rows-2 border-1 p-2.5">
+    <legend>Control de capas</legend>
     <label>
       <!-- NOTE: v-model sale en el tutorial, es para bindear las propiedades de un input con una variable, en este caso es el isChecked -->
       <input type="checkbox" v-model="showMarkers" />
-      Mostrar marcadores de parques
+      Marcadores de parques
     </label>
     <label>
       <input type="checkbox" v-model="showPolygons" />
-      Mostrar polígonos aleatorios
+      Polígonos aleatorios
     </label>
-  </div>
+  </fieldset>
 </template>
