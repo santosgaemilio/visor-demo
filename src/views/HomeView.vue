@@ -14,16 +14,27 @@ const catchMapLoaded = (
   mapElementsRef.value = mapElements
   isMapLoaded.value = true
 }
+//NOTE - Esto está explicado en MapSidebar.vue
+const docClicked = ref(false)
+const docWasClicked = () => {
+  console.log('It was clicked')
+  docClicked.value = true
+}
 </script>
 
 <template>
   <!--NOTE: Se va a utilizar el position: relative; para poder manejar el z desde aquí -->
   <!--NOTE: Rafa! todo va arriba del mapa osea z > 0 -->
-  <main class="full-screen-map relative">
+  <main class="full-screen-map relative" @click="docWasClicked">
     <!--NOTE: Como el sidebar debe estar en la izquierda, lo flotamos a la esquina superior
 izquierda-->
     <MainMap class="z-0" @loaded="catchMapLoaded" />
-    <MapSidebar class="z-40 absolute top-0 left-0" v-if="isMapLoaded" />
+    <MapSidebar
+      class="z-40 absolute top-0 left-0"
+      v-if="isMapLoaded"
+      :clicked-outisde="docClicked"
+      @clicked-inside="() => (docClicked = false)"
+    />
   </main>
 </template>
 
