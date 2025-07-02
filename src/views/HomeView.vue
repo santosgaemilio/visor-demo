@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import MainMap from '../components/MainMap.vue'
-import MapSidebar from '../components/MapSidebar.vue'
+// import MapSidebar from '../components/MapSidebar.vue'
+import MapSlidemenu from '../components/MapSlidemenu.vue'
 import { ref, Ref, provide } from 'vue'
 const isMapLoaded: Ref<boolean> = ref(false)
 const mapElementsRef: Ref<ReturnType<
@@ -29,12 +30,13 @@ const docWasClicked = () => {
     <!--NOTE: Como el sidebar debe estar en la izquierda, lo flotamos a la esquina superior
 izquierda-->
     <MainMap class="z-0" @loaded="catchMapLoaded" />
-    <MapSidebar
+    <!-- <MapSidebar
       class="z-40 absolute top-0 left-0"
       v-if="isMapLoaded"
       :clicked-outisde="docClicked"
       @clicked-inside="() => (docClicked = false)"
-    />
+    /> -->
+    <MapSlidemenu class="z-40 absolute top-0 left-0 ml-4 mt-4" />
   </main>
 </template>
 
