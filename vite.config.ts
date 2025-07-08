@@ -8,21 +8,7 @@ import ui from '@nuxt/ui/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    tailwindcss(),
-    vue(),
-    vueDevTools(),
-    ui({
-      ui: {
-        slideover: {
-          slots: {
-            content: 'bg-white text-black',
-            title: 'text-black',
-          },
-        },
-      },
-    }),
-  ],
+  plugins: [tailwindcss(), vue(), vueDevTools(), ui()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

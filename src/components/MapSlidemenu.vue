@@ -11,9 +11,6 @@ const isMenuVisible = ref(false)
     :overlay="false"
     side="left"
     v-model:open="isMenuVisible"
-    :ui="{
-      icon: 'text-red-500',
-    }"
   >
     <template v-if="!isMenuVisible">
       <UButton icon="i-lucide-menu" size="xl" color="neutral" variant="solid" />

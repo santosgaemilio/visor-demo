@@ -2,6 +2,7 @@
 import MainMap from '../components/MainMap.vue'
 // import MapSidebar from '../components/MapSidebar.vue'
 import MapSlidemenu from '../components/MapSlidemenu.vue'
+import ThemeSwitch from '../components/ThemeSwitch.vue'
 import { ref, Ref, provide } from 'vue'
 const isMapLoaded: Ref<boolean> = ref(false)
 const mapElementsRef: Ref<ReturnType<
@@ -37,6 +38,7 @@ izquierda-->
       @clicked-inside="() => (docClicked = false)"
     /> -->
     <MapSlidemenu class="z-40 absolute top-0 left-0 ml-4 mt-4" />
+    <ThemeSwitch class="z-40 absolute top-0 right-0 mr-4 mt-4" />
   </main>
 </template>
 

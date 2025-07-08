@@ -1,2 +1,23 @@
 @import 'tailwindcss';
-@import "@nuxt/ui";
+@import '@nuxt/ui';
+
+@theme {
+  --color-neutral-50: #f3f4f1;
+  --color-neutral-950: #21211d;
+  /* ...through 900/950 */
+}
+:root {
+  --ui-bg: var(--color-neutral-50);
+  --ui-text: var(--color-neutral-950);
+  --ui-bg-inverted: var(--color-neutral-50);
+  --ui-text-inverted: var(--color-neutral-950);
+  --ui-border: var(--color-neutral-950);
+  --ui-bg-accented: var(--color-neutral-50);
+}
+.dark {
+  --ui-bg: var(--color-neutral-950);
+  --ui-text: var(--color-neutral-50);
+  --ui-bg-inverted: var(--color-neutral-950);
+  --ui-text-inverted: var(--color-neutral-50);
+  --ui-border: var(--color-neutral-50);
+}
