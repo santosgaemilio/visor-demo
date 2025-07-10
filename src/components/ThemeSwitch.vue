@@ -1,20 +1,20 @@
 <script setup lang="ts">
 import { useColorMode } from '@vueuse/core'
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
+const props = defineProps<{
+  theme: string
+}>()
 const mode = useColorMode()
-mode.value = 'dark'
+mode.value = computed<'dark' | 'light' | 'auto'>(() => (props.theme == 'dark' ? 'dark' : 'light'))
 const switchState = ref(true)
 watch(switchState, (isDark) => {
   mode.value = isDark ? 'dark' : 'light'
+  console.log(mode.value)
+  console.log('Theme switcher clicked')
 })
 </script>
 
 <template>
-  <!-- <UButton
-    :icon="mode === 'dark' ? 'i-lucide-moon' : 'i-lucide-sun'"
-    color="neutral"
-    @click="mode = mode === 'dark' ? 'light' : 'dark'"
-  /> -->
   <USwitch
     unchecked-icon="i-lucide-sun"
     checked-icon="i-lucide-moon"
